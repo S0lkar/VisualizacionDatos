@@ -1,0 +1,49 @@
+.stApp {
+    background: #0e1117;
+}
+
+div.stTabs button { /*Estilo default de los botones, en caso de hacer algo interactivo*/
+    background: #0e1117;
+}
+
+.stApp header { /*Estilo default del título principal*/
+    background: #0e1117;
+}
+
+audio { /*Estilo default del bloque de audio*/
+    margin-top: 10px;
+    max-height: 15px;
+}
+
+audio::-webkit-media-controls-panel,
+audio::-webkit-media-controls-enclosure {
+    background-color: #9c9d9f;
+}
+
+
+h3{ /*Estilo default del header3*/
+    color: #756760;
+    margin-bottom: 1rem;
+}
+
+img {
+    width: 100%;
+}
+
+@keyframes fadeIn {
+    0%   {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+/*Estilo de botones*/
+.bbutton {
+    position: -webkit-sticky;
+    padding-left: 10px;
+    position: fixed;
+    bottom: 8rem;
+    left: 0;
+    right: 0;
+    width: 50%;
+    margin-right: auto;
+    opacity: 0.5;
+}
