@@ -4,6 +4,8 @@ import streamlit as st
 import bloque02 as B2
 # import bloque03 as B3
 import bloque04 as B4
+
+
 # import bloque05 as B5
 # import bloque06 as B6
 
@@ -18,7 +20,8 @@ def local_css(filename):
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 
-st.set_page_config(page_title="Special Space Story", page_icon="🌎", initial_sidebar_state="collapsed")
+st.set_page_config(page_title="Active Satellites in Orbit Around Earth", page_icon="🌎",
+                   initial_sidebar_state="collapsed")
 
 
 def add_audio(filename):
@@ -28,12 +31,14 @@ def add_audio(filename):
 
 
 local_css("frontend.css")
-tab = st.tabs(["Introducción", "Bloque 1", "¿Cómo hemos llegado aquí", "Bloque 3", "Bloque 4", "Bloque 5", "Bloque 6"])
+tab = st.tabs(["Presentación", "Introducción al problema", "¿Cómo hemos llegado aquí",
+               "¿A quién pertenecen y qué propósito tienen?", "¿Qué órbitas siguen?",
+               "¿Dónde se fabricaron?", "¿Cómo se puede abordar el problema"])
 
 # ----------------- Introducción -----------------
 with tab[0]:
     add_audio("audio/intro.mp3")
-    st.subheader("| Introducción")
+    st.subheader("| Presentación")
     # Ejemplo de como poner 'imagen | texto' (funciona para imágenes estáticas con 'st.image(ruta)' tambien)
     col1, col2 = st.columns(2, gap="small")
     with col1:
@@ -51,12 +56,14 @@ with tab[0]:
         st.write(f'<p style="color:#f4ebd0">{intro_text}</p>', unsafe_allow_html=True)
     # ---------------------------------------------------------------------------------
 
-    st.subheader("| Dummy")
+    st.subheader("| Objetivo del trabajo")
     st.write(
         # Color normal de texto con ejemplos de cómo usar texto en negrita y en cursiva
         '<p style="color:#9c9d9f"> Lorem <b>ipsum</b> <i>dolor</i> sit amet. </p>',
         unsafe_allow_html=True,
     )
+    st.subheader("| Conjunto de datos")
+
     st.subheader("| Github")
     st.write(
         '<p style="color:#9c9d9f">Toda nuestra historia se encuentra en <a '
