@@ -20,7 +20,7 @@ def local_css(filename):
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 
-st.set_page_config(page_title="Active Satellites in Orbit Around Earth", page_icon="🌎",
+st.set_page_config(page_title="Active Satellites in Orbit Around Earth till 2016", page_icon="🌎",
                    initial_sidebar_state="collapsed")
 
 
