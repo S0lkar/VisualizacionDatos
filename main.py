@@ -1,7 +1,7 @@
 # ------- Módulos para traer las gráficas a streamlit -------
 import streamlit as st
 import matplotlib.pyplot as plt
-
+import orbital
 # ------- Contenido general de la página -------
 # Aquí se dan las instrucciones para montar la página (definiendo el estilo, gráficas...) principal.
 # Tal y como está montado, podríamos tener diferentes estilos por apartados
@@ -55,9 +55,9 @@ with tab[0]:
     )
 
 # Código del Bloque 1
-#import bloque01 as B1
-#with tab[1]:
-#    B1.B1_Frontend()
+import bloque01 as B1
+with tab[1]:
+    B1.B1_Frontend()
 
 # Código del Bloque 2
 #import bloque02 as B2
