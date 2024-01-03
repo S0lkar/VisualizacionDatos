@@ -38,6 +38,7 @@ tab = st.tabs(["Presentación", "Introducción al problema", "¿Cómo hemos lleg
                "¿A quién pertenecen y qué propósito tienen?", "¿Qué órbitas siguen?",
                "¿Dónde se fabricaron?", "¿Cómo se puede abordar el problema"])
 
+import orbital
 # ----------------- Introducción -----------------
 with tab[0]:
     add_audio("audio/intro.mp3")
@@ -51,7 +52,7 @@ with tab[0]:
             "Una historia especialmente espacial sobre los satélites del mundo.", unsafe_allow_html=True
         )
     with col2:
-        intro_text = """Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla fringilla ligula eu purus 
+        intro_text = orbital.__file__ + """Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla fringilla ligula eu purus 
         egestas, non elementum sem dignissim. Vivamus tristique porta molestie. Nam semper elementum ante sed 
         interdum. Quisque a augue quis lectus placerat commodo et vitae massa. Donec ipsum leo, ultrices non aliquam 
         quis, ultricies in erat. Pellentesque sed pharetra dui. Aenean sed accumsan velit, ut elementum sem."""
