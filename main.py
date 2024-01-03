@@ -1,6 +1,8 @@
 # ------- Módulos para traer las gráficas a streamlit -------
 import streamlit as st
-# import bloque01 as B1
+
+
+import bloque01 as B1
 import bloque02 as B2
 # import bloque03 as B3
 import bloque04 as B4
@@ -8,6 +10,7 @@ import bloque04 as B4
 
 # import bloque05 as B5
 # import bloque06 as B6
+
 
 
 # ------- Contenido general de la página -------
@@ -72,8 +75,11 @@ with tab[0]:
     )
 
 # Código del Bloque 1
-# with tab[1]:
-#    B1.B1_Frontend()
+
+
+with tab[1]:
+    B1.B1_Frontend()
+
 
 # Código del Bloque 2
 with tab[2]:
