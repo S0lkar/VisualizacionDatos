@@ -9,3 +9,5 @@ folium
 seaborn
 scikit-learn
 numpy
+sgp4
+astropy
