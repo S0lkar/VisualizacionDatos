@@ -76,6 +76,7 @@ def B5_02():
     st.title("Análisis de sitios de lanzamiento de vehículos espaciales")
 
     # -----
+    data = pd.read_csv("database.csv")
     data['Country of Contractor'] = data['Country of Contractor'].str.replace('France, UK, Germany', 'France/ UK/Germany')
     data['Country of Contractor'] = data['Country of Contractor'].str.replace('International', 'Ecuador')
     data['Country of Contractor'] = data['Country of Contractor'].str.replace('Multinational', 'Ecuador')
@@ -103,7 +104,6 @@ def B5_02():
 
     # Crear un gráfico de barras con Streamlit
     st.bar_chart(conteo_paises) ## HASTA AQUÍ BIEN
-    # ----
     # ----
 
     # Seleccionar un país mediante el gráfico de barras
@@ -161,8 +161,6 @@ def B5_02():
         'Wallops Island Flight Facility': 'https://media.defense.gov/2013/Sep/06/2000751479/780/780/0/090613-A-CE999-001.JPG',
         'Xichang Satellite Launch Center': 'https://video.cgtn.com/news/3d3d674d7a6b7a4e31457a6333566d54/video/c8bc07ce4a7343c08793d8f7ed729366/c8bc07ce4a7343c08793d8f7ed729366.jpg'
     }
-
-
 
     if selected_country:
         # Filtrar los datos por el país seleccionado
