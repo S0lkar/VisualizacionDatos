@@ -8,6 +8,10 @@ Created on Tue Jan  9 18:05:42 2024
 import pandas as pd
 import matplotlib.pyplot as plt
 import plotly.express as px
+from st_pages import add_page_title
+
+# add to nav
+add_page_title()
 
 import warnings
 warnings.filterwarnings("ignore")

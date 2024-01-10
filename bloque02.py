@@ -2,6 +2,10 @@ import pandas as pd
 import streamlit as st
 import matplotlib.pyplot as plt
 import plotly.express as px
+from st_pages import add_page_title
+
+# add to nav
+add_page_title()
 
 FILENAME = 'database.csv'
 '''Official Name of Satellite,Country/Organization of UN Registry,Operator/Owner,Country of Operator/Owner,Users,Purpose,
@@ -51,3 +55,6 @@ def B2_02(df):
     fig = px.pie(df_countries, names='Purpose', title='Active Satellites purposes till 2016')
 
     return fig
+
+
+B2_Frontend()

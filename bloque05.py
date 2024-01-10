@@ -11,6 +11,10 @@ import pandas as pd
 import folium
 import altair as alt
 import plotly.express as px
+from st_pages import add_page_title
+
+# add to nav
+add_page_title()
 
 def B5_Frontend():
 
@@ -211,3 +215,5 @@ def B5_Frontend():
         st.markdown("")
         st.components.v1.html(m._repr_html_(), width=800, height=600)
 
+
+B5_Frontend()
