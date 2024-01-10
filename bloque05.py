@@ -10,10 +10,11 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import folium
 import altair as alt
+import plotly.express as px
 
-def B5_01():
+def B5_Frontend():
 
-    # Inicialización de st.session_state
+    # Inicialización de st.session_state (para pantalla completa)
     if "use_container_width" not in st.session_state:
         st.session_state["use_container_width"] = True
 
@@ -34,8 +35,20 @@ def B5_01():
             contribución al avance de la exploración espacial. Pero, ¿cuáles son los más populares?🚀🚀""")
 
     st.write("Aquí presentamos una selección de los vehículos más lanzados:")
-    data1 = pd.DataFrame(data["Launch Vehicle"].value_counts().head(15))
-    st.dataframe(data1,use_container_width=st.session_state.use_container_width)
+    # data1 = pd.DataFrame(data["Launch Vehicle"].value_counts().head(15))
+    # st.dataframe(data1,use_container_width=st.session_state.use_container_width)
+
+    conteo = (data["Launch Vehicle"].value_counts().head(15))
+    # -----
+    # Crear un gráfico de barras horizontal con Plotly Express
+    fig = px.bar(conteo, orientation='h', text = conteo.values, labels={'value': 'Cantidad', 'index': 'Launch Vehicle'},
+                title='Recuento de vehículos de lanzamiento (Top 15)')
+    fig.update_traces(marker_color='darkred')
+    fig.update_layout(xaxis_title='', yaxis_title='', showlegend=False, title_x=0.2,title_font_size=24)
+
+    # Mostrar el gráfico usando Streamlit
+    st.plotly_chart(fig)
+    # ----- FIN
 
     # Diccionario de videos por vehículo (con enlaces de YouTube)
     videos = {
@@ -56,9 +69,9 @@ def B5_01():
         'Long March 4C': 'https://www.youtube.com/watch?v=zC4kv-rlmyE'
     }
 
-    # Parte del simulacion de lanzamiento espacial 
+    # Parte de simulacion de lanzamiento espacial 
     st.title('Simulador de Lanzamiento Espacial')
-    st.write('''Desde los icónicos cohetes hasta las imponentes naves espaciales, ¡tienes el poder de elegir! 
+    st.write('''Desde los cohetes más icónicos hasta las imponentes naves espaciales, ¡tienes el poder de elegir! 
             Selecciona tu vehículo de lanzamiento preferido de la lista y prepárate para el despegue🚀🚀''')
 
     # Selección del vehículo de lanzamiento
@@ -70,12 +83,11 @@ def B5_01():
         st.video(videos[vehiculo_seleccionado])
 
 
-def B5_02():
-
+    # -----
 
     st.title("Análisis de sitios de lanzamiento de vehículos espaciales")
 
-    # -----
+    
     data = pd.read_csv("database.csv")
     data['Country of Contractor'] = data['Country of Contractor'].str.replace('France, UK, Germany', 'France/ UK/Germany')
     data['Country of Contractor'] = data['Country of Contractor'].str.replace('International', 'Ecuador')
@@ -102,16 +114,23 @@ def B5_02():
     # Obtener la cantidad de sitios de lanzamiento por país
     conteo_paises =data['First_country'].value_counts().sort_values(ascending=False)
 
-    # Crear un gráfico de barras con Streamlit
-    st.bar_chart(conteo_paises) ## HASTA AQUÍ BIEN
+    # Crear un gráfico de barras con PLOTLY EXPRESS
+    fig = px.bar(x=conteo_paises.index, y=conteo_paises.values, labels={'x': 'País', 'y': 'Cantidad'},
+             title='Recuento de países de fabricación de vehículos')
+    fig.update_traces(marker_color='darkred')  
+    fig.update_layout(title_x=0.2,title_font_size=24)
+
+    st.plotly_chart(fig)
     # ----
+    
+    st.markdown("""<p style='color:gold;font-size:20px;font-weight:bold;'>Tras ver el recuento de <span style='color:darkred;'>DÓNDE</span> se han fabricado, toca observar <span style='color:darkred;'>HACIA DÓNDE</span> se han destinado para su lanzamiento. ¡¡Veámoslo!!</p>""", unsafe_allow_html=True)
 
     # Seleccionar un país mediante el gráfico de barras
     selected_country = st.selectbox('Selecciona un país', conteo_paises.index)
 
     # Diccionario con las coordenadas de los sitios de lanzamiento
     coordenadas_lanzamiento = {
-        'Baikonur Cosmodrome': (45.9644, 63.3056),  # Reemplazar con las coordenadas reales
+        'Baikonur Cosmodrome': (45.9644, 63.3056),  
         'Cape Canaveral': (28.5721, -80.6480),
         'Dombarovsky Air Base': (51.0614, 59.8542),
         'Guiana Space Center': (5.2360, -52.7681),
@@ -123,8 +142,8 @@ def B5_02():
         'Palmachim Launch Complex': (31.7922, 34.6304),
         'Plesetsk Cosmodrome': (62.9271, 40.5774),
         'Satish Dhawan Space Center': (13.7337, 80.2354),
-        'Sea Launch': (0.0, 0.0),  # Reemplazar con las coordenadas reales
-        'Sea Launch (Odyssey)': (0.0, 0.0),  # Reemplazar con las coordenadas reales
+        'Sea Launch': (0.0, 0.0), 
+        'Sea Launch (Odyssey)': (0.0, 0.0), 
         'Svobodny Cosmodrome': (51.4023, 128.2970),
         'Taiyuan Launch Center': (38.8428, 111.6184),
         'Tanegashima Space Center': (30.3607, 130.9587),
@@ -163,10 +182,8 @@ def B5_02():
     }
 
     if selected_country:
-        # Filtrar los datos por el país seleccionado
-        filtered_data = data[data['First_country'] == selected_country]
         
-        # Obtener los sitios de lanzamiento asociados al país seleccionado
+        filtered_data = data[data['First_country'] == selected_country]
         launch_sites = filtered_data['Launch Site'].unique()
         
         # Mostrar el mapa interactivo con los sitios de lanzamiento usando Folium
@@ -174,10 +191,14 @@ def B5_02():
 
         # Agregar marcadores al mapa para los sitios de lanzamiento asociados al país seleccionado
         for site in launch_sites:
-            coordinates = coordenadas_lanzamiento.get(site)
+            site_name = site #ESTO
             image_url = imagenes_lanzamiento.get(site)
+            coordinates = coordenadas_lanzamiento.get(site)
+            popup_content = f'<h3>{site_name}</h3>'
+            popup_content += f'<img src="{image_url}" alt="{site}" style="max-height:200px;max-width:300px;">'
+            
             if coordinates:
-                popup_content = f'<img src="{image_url}" alt="{site}" style="max-height:200px;max-width:300px;">'
+                
                 folium.Marker(
                     location=coordinates,
                     popup=folium.Popup(popup_content, max_width=400),
@@ -186,7 +207,7 @@ def B5_02():
 
         # Mostrar el mapa interactivo en Streamlit
         st.markdown(f"### Lugares de lanzamiento en {selected_country}:")
-        st.markdown(f"Seleccionado: {', '.join(launch_sites)}")
         st.markdown("")
         st.markdown("")
         st.components.v1.html(m._repr_html_(), width=800, height=600)
+

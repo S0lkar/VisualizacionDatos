@@ -8,7 +8,7 @@ import bloque02 as B2
 import bloque04 as B4
 
 
-# import bloque05 as B5
+import bloque05 as B5
 # import bloque06 as B6
 
 
@@ -95,8 +95,8 @@ with tab[4]:
     B4.B4_Frontend()
 
 # Código del Bloque 5
-# with tab[5]:
-#    B5.B5_Frontend()
+with tab[5]:
+   B5.B5_Frontend()
 
 # Código del Bloque 6
 # with tab[6]:
