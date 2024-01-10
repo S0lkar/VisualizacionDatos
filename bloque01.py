@@ -23,7 +23,7 @@ def B1_Frontend():
     titulo = st.empty()
 
     titulo.markdown(
-        '<h1 style="text-align: center; margin-top: 300px; color: white;">¿Quieres saber qué nos dicen los datos de la industria de los satélites?</h1>',
+        '<h1 style="text-align: center; margin-top: 300px;">¿Quieres saber qué nos dicen los datos de la industria de los satélites?</h1>',
         unsafe_allow_html=True)
 
     window = st.radio("", ["***DATOS***", "***CONSECUENCIAS***"], index=None, horizontal=True)
@@ -54,7 +54,7 @@ def B1_Frontend():
         st.plotly_chart(fig)
         st.markdown(
             f"""
-        <div style="text-align:center; colot:white; font-size:24px; padding:10px;">
+        <div style="text-align:center; font-size:24px; padding:10px;">
             La desmesuradas velocidades de la basura espacial pone en peligro el funcionamiento de los satélites activos e incluso las misiones tripuladas
         </div>
         """,
