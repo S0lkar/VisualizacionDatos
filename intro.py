@@ -4,10 +4,12 @@ from st_pages import add_page_title
 # add to nav
 add_page_title()
 
+
 def add_audio(filename):
     audio_file = open(filename, "rb")
     audio_bytes = audio_file.read()
     st.audio(audio_bytes, format="audio/mpeg")
+
 
 def B0_Frontend():
     st.subheader("| Presentación")
@@ -25,7 +27,7 @@ def B0_Frontend():
             interdum. Quisque a augue quis lectus placerat commodo et vitae massa. Donec ipsum leo, ultrices non aliquam
             quis, ultricies in erat. Pellentesque sed pharetra dui. Aenean sed accumsan velit, ut elementum sem."""
         # Este color resalta algo más que el grisáceo y sigue en la paleta
-        st.write(f'<p style="color:#f4ebd0">{intro_text}</p>', unsafe_allow_html=True)
+        st.write(intro_text, unsafe_allow_html=True)
     # ---------------------------------------------------------------------------------
 
     st.subheader("| Objetivo del trabajo")
@@ -38,7 +40,9 @@ def B0_Frontend():
 
     st.subheader("| Github")
     st.write(
-        '<p style="color:#9c9d9f">Toda nuestra historia se encuentra en <a '
+        'Toda nuestra historia se encuentra en <a '
         'href="https://github.com/S0lkar/VisualizacionDatos">nuestro repositorio en GitHub</a>.</p><br>',
         unsafe_allow_html=True,
     )
+
+B0_Frontend()
