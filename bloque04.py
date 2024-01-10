@@ -1,37 +1,17 @@
-# ------- Módulos para tratar los datos -------
-import matplotlib.pyplot as plt
-from numpy import radians
-import pandas as pd
-import streamlit as st
-from orbital import earth, KeplerianElements, plot, earth_sidereal_day
-import streamlit.components.v1 as components
-from scipy.constants import kilo
-import plotly.express as px
+from CommonTools import *
 # Fuente de información: https://www.esa.int/Enabling_Support/Space_Transportation/Types_of_orbits
-from st_pages import add_page_title
-
-# add to nav
-add_page_title()
+add_page_title(initial_sidebar_state="expanded", layout="wide")
+local_css("frontend.css")
 
 # ------- Variables Globales -------
-FILENAME = 'database.csv'  # El nombre de nuestra base de datos
 DF = pd.read_csv(FILENAME)
 
 # ------- Funciones de visualización -------
 # Todas estas funciones devuelven las gráficas que luego se imprimen en streamlit
-Elliptical = KeplerianElements.with_period(earth_sidereal_day / 2, e=0.741, i=radians(63.4), arg_pe=radians(270),
-                                           body=earth)
+Elliptical = KeplerianElements.with_period(earth_sidereal_day / 2, e=0.741, i=radians(63.4), arg_pe=radians(270), body=earth)
 GEO = KeplerianElements.with_altitude(4000 * kilo, body=earth)
 MEO = KeplerianElements.with_altitude(1000 * kilo, body=earth)
 LEO = KeplerianElements.with_altitude(300 * kilo, body=earth)
-
-
-def PositionImage(data, proportions=[0.15, 0.7, 0.15], usecol=1):
-    cols = st.columns(proportions)
-    with cols[usecol]:
-        st.plotly_chart(figure_or_data=data, use_container_width=True)
-    pass
-
 
 # TODO: Diseñar el aspecto según el fondo que se elija finalmente
 def B4_01():

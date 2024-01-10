@@ -1,15 +1,7 @@
-import streamlit as st
-from st_pages import add_page_title
-
+from CommonTools import *
 # add to nav
-add_page_title()
-
-
-def add_audio(filename):
-    audio_file = open(filename, "rb")
-    audio_bytes = audio_file.read()
-    st.audio(audio_bytes, format="audio/mpeg")
-
+add_page_title(initial_sidebar_state="expanded", layout="wide")
+local_css("frontend.css")
 
 def B0_Frontend():
     st.subheader("| Presentación")
@@ -22,24 +14,25 @@ def B0_Frontend():
             "Una historia especialmente espacial sobre los satélites del mundo.", unsafe_allow_html=True
         )
     with col2:
-        intro_text = """¡Bienvenid@ a bordo!\nEste es un trabajo para la asignatura Visualización de datos del Máster
-        en Inteligencia Artificial de la Universidad Loyola Andalucía por lo que tiene un objetivo meramente académico"""
-        st.write(intro_text)
+        intro_text = """Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla fringilla ligula eu purus
+            egestas, non elementum sem dignissim. Vivamus tristique porta molestie. Nam semper elementum ante sed
+            interdum. Quisque a augue quis lectus placerat commodo et vitae massa. Donec ipsum leo, ultrices non aliquam
+            quis, ultricies in erat. Pellentesque sed pharetra dui. Aenean sed accumsan velit, ut elementum sem."""
+        # Este color resalta algo más que el grisáceo y sigue en la paleta
+        st.write(f'<p style="color:#f4ebd0">{intro_text}</p>', unsafe_allow_html=True)
     # ---------------------------------------------------------------------------------
 
     st.subheader("| Objetivo del trabajo")
-    objetivo_text = """Analizar y exponer la problemática de la basura espacial haciendo un recorrido por un conjunto
-    de datos de los satélites activos a fecha de 2016"""
-    st.write(objetivo_text)
-    st.subheader("| Conjunto de datos")
-    datos_text = """En este trabajo hemos utilizado este <a 
-    href="https://www.kaggle.com/datasets/ucsusa/active-satellites/data"> conjunto de datos</a>"""
-    st.write(datos_text, unsafe_allow_html=True)
-    st.subheader("| Github")
     st.write(
-        'Toda nuestra historia se encuentra en <a '
-        'href="https://github.com/S0lkar/VisualizacionDatos"> nuestro repositorio en GitHub</a>.',
+        # Color normal de texto con ejemplos de cómo usar texto en negrita y en cursiva
+        '<p style="color:#9c9d9f"> Lorem <b>ipsum</b> <i>dolor</i> sit amet. </p>',
         unsafe_allow_html=True,
     )
+    st.subheader("| Conjunto de datos")
 
-B0_Frontend()
+    st.subheader("| Github")
+    st.write(
+        '<p style="color:#9c9d9f">Toda nuestra historia se encuentra en <a '
+        'href="https://github.com/S0lkar/VisualizacionDatos">nuestro repositorio en GitHub</a>.</p><br>',
+        unsafe_allow_html=True,
+    )

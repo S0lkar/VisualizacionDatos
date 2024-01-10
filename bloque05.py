@@ -1,20 +1,7 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Dec 27 19:16:32 2023
-
-@author: Usuario
-"""
-
-import streamlit as st
-import matplotlib.pyplot as plt
-import pandas as pd
-import folium
-import altair as alt
-import plotly.express as px
-from st_pages import add_page_title
-
+from CommonTools import *
 # add to nav
-add_page_title()
+add_page_title(initial_sidebar_state="expanded", layout="wide")
+local_css("frontend.css")
 
 def B5_Frontend():
 
@@ -51,7 +38,8 @@ def B5_Frontend():
     fig.update_layout(xaxis_title='', yaxis_title='', showlegend=False, title_x=0.2,title_font_size=24)
 
     # Mostrar el gráfico usando Streamlit
-    st.plotly_chart(fig)
+    #st.plotly_chart(fig)
+    PositionImage(fig)
     # ----- FIN
 
     # Diccionario de videos por vehículo (con enlaces de YouTube)
@@ -124,7 +112,7 @@ def B5_Frontend():
     fig.update_traces(marker_color='darkred')  
     fig.update_layout(title_x=0.2,title_font_size=24)
 
-    st.plotly_chart(fig)
+    PositionImage(fig)
     # ----
     
     st.markdown("""<p style='color:gold;font-size:20px;font-weight:bold;'>Tras ver el recuento de <span style='color:darkred;'>DÓNDE</span> se han fabricado, toca observar <span style='color:darkred;'>HACIA DÓNDE</span> se han destinado para su lanzamiento. ¡¡Veámoslo!!</p>""", unsafe_allow_html=True)

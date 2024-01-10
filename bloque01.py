@@ -1,29 +1,13 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Dec 29 10:02:22 2023
-
-@author: Raquel
-"""
-
-import numpy as np
-import pandas as pd
-import streamlit as st
-import re
-import plotly.express as px
-from st_pages import add_page_title
-
-# -----------DATOS-------------
-FILENAME = 'database.csv'
-
+from CommonTools import *
 # add to nav
-add_page_title()
-
+add_page_title(initial_sidebar_state="expanded", layout="wide")
+local_css("frontend.css")
 
 def B1_Frontend():
     titulo = st.empty()
 
     titulo.markdown(
-        '<h1 style="text-align: center; margin-top: 300px;">¿Quieres saber qué nos dicen los datos de la industria de los satélites?</h1>',
+        '<h1 style="text-align: center; margin-top: 300px; color: white;">¿Quieres saber qué nos dicen los datos de la industria de los satélites?</h1>',
         unsafe_allow_html=True)
 
     window = st.radio("", ["***DATOS***", "***CONSECUENCIAS***"], index=None, horizontal=True)
@@ -32,7 +16,7 @@ def B1_Frontend():
         st.subheader(
             "Desde los años 50 el ser humano ha incrementado exponencialmente el número de satélites lanzados. Con el paso de los años cada vez es mayor nuestra evolución tecnológica en comunicación, meteorología, recogidas de datos, necesidad de investigación del espacio exterior...")
         fig1 = B1_01()
-        st.plotly_chart(fig1)
+        PositionImage(fig1)
         st.write("\n\n")
         st.subheader(
             "Este avance tecnológico también queda reflejado en el crecimiento del tiempo de vida de los satélites lanzandos:")
@@ -51,10 +35,10 @@ def B1_Frontend():
             La basura espacial se ha multiplicado por 5 en los últimos 10 años
             </div>""", unsafe_allow_html=True)
         fig = B1_03()
-        st.plotly_chart(fig)
+        PositionImage(fig)
         st.markdown(
             f"""
-        <div style="text-align:center; font-size:24px; padding:10px;">
+        <div style="text-align:center; colot:white; font-size:24px; padding:10px;">
             La desmesuradas velocidades de la basura espacial pone en peligro el funcionamiento de los satélites activos e incluso las misiones tripuladas
         </div>
         """,
@@ -64,7 +48,6 @@ def B1_Frontend():
 
 
 def B1_01():
-    FILENAME = 'database.csv'
     data = pd.read_csv(FILENAME)
     # Paso a fecha
     data.loc[:, "Date of Launch"] = pd.to_datetime(data["Date of Launch"]).dt.year
