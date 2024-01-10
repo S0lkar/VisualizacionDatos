@@ -22,26 +22,23 @@ def B0_Frontend():
             "Una historia especialmente espacial sobre los satélites del mundo.", unsafe_allow_html=True
         )
     with col2:
-        intro_text = """Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla fringilla ligula eu purus
-            egestas, non elementum sem dignissim. Vivamus tristique porta molestie. Nam semper elementum ante sed
-            interdum. Quisque a augue quis lectus placerat commodo et vitae massa. Donec ipsum leo, ultrices non aliquam
-            quis, ultricies in erat. Pellentesque sed pharetra dui. Aenean sed accumsan velit, ut elementum sem."""
-        # Este color resalta algo más que el grisáceo y sigue en la paleta
-        st.write(intro_text, unsafe_allow_html=True)
+        intro_text = """¡Bienvenid@ a bordo!\nEste es un trabajo para la asignatura Visualización de datos del Máster
+        en Inteligencia Artificial de la Universidad Loyola Andalucía por lo que tiene un objetivo meramente académico"""
+        st.write(intro_text)
     # ---------------------------------------------------------------------------------
 
     st.subheader("| Objetivo del trabajo")
-    st.write(
-        # Color normal de texto con ejemplos de cómo usar texto en negrita y en cursiva
-        '<p style="color:#9c9d9f"> Lorem <b>ipsum</b> <i>dolor</i> sit amet. </p>',
-        unsafe_allow_html=True,
-    )
+    objetivo_text = """Analizar y exponer la problemática de la basura espacial haciendo un recorrido por un conjunto
+    de datos de los satélites activos a fecha de 2016"""
+    st.write(objetivo_text)
     st.subheader("| Conjunto de datos")
-
+    datos_text = """En este trabajo hemos utilizado este <a 
+    href="https://www.kaggle.com/datasets/ucsusa/active-satellites/data"> conjunto de datos</a>"""
+    st.write(datos_text, unsafe_allow_html=True)
     st.subheader("| Github")
     st.write(
         'Toda nuestra historia se encuentra en <a '
-        'href="https://github.com/S0lkar/VisualizacionDatos">nuestro repositorio en GitHub</a>.</p><br>',
+        'href="https://github.com/S0lkar/VisualizacionDatos"> nuestro repositorio en GitHub</a>.',
         unsafe_allow_html=True,
     )
 
