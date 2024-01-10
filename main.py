@@ -5,14 +5,14 @@ st.set_page_config(page_title="Active Satellites in Orbit Around Earth (2016)", 
                    initial_sidebar_state="expanded")
 
 
-@st.cache_resource
-def local_css(filename):
-    with open(filename) as f:
-        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+# @st.cache_resource
+# def local_css(filename):
+#     with open(filename) as f:
+#         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 
 
-local_css("frontend.css")
+#local_css("frontend.css")
 
 show_pages(
     [
