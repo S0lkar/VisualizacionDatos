@@ -12,6 +12,6 @@ show_pages(
         Page("bloque03.py", "¿Qué propósito tienen?", "🚀"),
         Page("bloque04.py", "¿Qué órbitas siguen?", "🚀"),
         Page("bloque05.py", "¿Dónde se fabricaron?", "🚀"),
-        # Page("bloque06.py", "¿Cómo se puede abordar el problema?", "🚀"),
+        Page("bloque06.py", "¿Cómo se puede abordar el problema?", "🚀"),
     ]
 )
