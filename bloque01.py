@@ -13,36 +13,40 @@ def B1_Frontend():
     window = st.radio("", ["***DATOS***", "***CONSECUENCIAS***"], index=None, horizontal=True)
 
     if window == '***DATOS***':
-        st.subheader(
-            "Desde los años 50 el ser humano ha incrementado exponencialmente el número de satélites lanzados. Con el paso de los años cada vez es mayor nuestra evolución tecnológica en comunicación, meteorología, recogidas de datos, necesidad de investigación del espacio exterior...")
+        st.title("Crecimiento en el lanzamiento de cohetes")
+        st.write(""" Desde los años 50 hemos incrementado exponencialmente el número de satélites lanzados🚀🚀""") 
+            
+        st.write("""Con el paso de los años cada vez es mayor nuestra evolución tecnológica en comunicación, meteorología, recogidas de datos, necesidad de investigación del espacio exterior...""")
+
         fig1 = B1_01()
         PositionImage(fig1)
         st.write("\n\n")
-        st.subheader(
-            "Este avance tecnológico también queda reflejado en el crecimiento del tiempo de vida de los satélites lanzandos:")
-        appointment = st.slider("Marque la fecha en la que esté interesado: ", min_value=1978, max_value=1998,
+       
+        st.title("¿Cuántos años de vida esperados tienen los satélites?")
+        appointment = st.slider("Señala la fecha en las que estés interesado y descubre el ritmo de crecimiento: ", min_value=1978, max_value=1998,
                                 value=1980)
         msg = B1_02(appointment)
-        st.subheader("{} - satélites con {} años de vida".format(appointment, msg))
+        st.subheader("{} - lanzamiento de satélites con {} años de vida".format(appointment, msg))
         # text = "<div style='text-align: center;'>{} - {} años de vida</div>".format(appointment, msg)
         # st.markdown(text, unsafe_allow_html=True)
+        st.write("Hay que destacar que estos son los años teóricos para los que está diseñado, los datos nos muestran que existen muchos casos en los que los satélites siguen ejerciendo su función muchos mas años de los esperados. Contrasta la información de ambas gráficas y aprecia cómo incluso doblan el número de años previstos.")
 
     if window == '***CONSECUENCIAS***':
         # st.subheader("La basura espacial se ha multiplicado por 5 en los últimos 10 años")
-        st.markdown(
-            f"""
-            <div style="text-align:center; color:orange; font-size:38px; padding:10px;">
-            La basura espacial se ha multiplicado por 5 en los últimos 10 años
-            </div>""", unsafe_allow_html=True)
+        #st.markdown(
+        #    f"""
+        #    <div style="text-align:center; color:orange; font-size:38px; padding:10px;">
+        #    La basura espacial se ha multiplicado por 5 en los últimos 10 años
+        #    </div>""", unsafe_allow_html=True)
+        st.title("Acumulación desmesurdad de basura espacial")
+        #st.title("El crecimiento exponencial en el lanzamiento de cohete a conducido a una QUINTUPLICACIÓN de la basura espacial en los últimos 10 AÑOS")
+        st.write("""<p style='color:black;font-size:20px;font-weight:bold;'>EL crecimiento exponencial en el lanzamiento de cohetes ha conducido a una <span style='color:darkred;'>QUINTUPLICACIÓN</span> de la basura espacial en los últimos <span style='color:darkred;'>10 AÑOS</span>. ¡¡Observa cómo crece!!</p>""", unsafe_allow_html=True)
+
         fig = B1_03()
         PositionImage(fig)
-        st.markdown(
-            f"""
-        <div style="text-align:center; font-size:24px; padding:10px;">
-            La desmesuradas velocidades de la basura espacial pone en peligro el funcionamiento de los satélites activos e incluso las misiones tripuladas
-        </div>
-        """,
-            unsafe_allow_html=True)
+        
+        st.title("¿Qué efectos negativos trae la basura espacial?")
+        st.write(""" Todos los satélites que se lanzan pasan a ser basura espacial. El riesgo de la basura espacial reside las velocidades a las que se desplaza en el espacio y el peligro que supone el impacto de ella contra satélites que están desarrollando su función o, en el peor de los casos, a misiones tripuladas. """)
         st.subheader("")
         st.image('./imgs/basura_espacial_bloque1.jpg')
 
