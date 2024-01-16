@@ -38,7 +38,7 @@ def B4_Frontend():
     st.audio(audio_bytes, format="audio/mpeg")
     st.subheader("| ¿Qué clases de órbitas existen?")
     st.write(
-        "Decimos que una órbita pertenece a una clase u otra en función de su <b>distancia respecto a la Tierra </b>. En esta clasificación sólo es reletante la distancia y la forma.")
+        "Decimos que una órbita pertenece a una clase u otra en función de su <b>distancia respecto a la Tierra </b>. En esta clasificación sólo es reletante la distancia y la forma.", unsafe_allow_html=True)
     st.write("<h3>LEO</h3>", unsafe_allow_html=True)
     st.write(
         "LEO (<i>Low Earth Orbit</i>) es la órbita con menor distancia a la tierra, en un rango de 160 a 700kms de radio. "
