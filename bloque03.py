@@ -15,14 +15,8 @@ database = pd.read_csv('database.csv')
  
 
 def B1_Frontend():
-    titulo = st.empty()
-
-    titulo.markdown(
-        '<h1 style="text-align: center; margin-top: 300px;">Vigilantes del Espacio: Un Vistazo Gráfico a la Red de Satélites que Transforma Nuestra Vida Diaria</h1>',
-        unsafe_allow_html=True)
     
-    st.write('''Entre los satélites activos, se aprecia que la inmensa mayoría de ellos son los dedicados a comunicaciones y a observación de la Tierra.
-    Algo para tener en cuenta es que los datos estudiados solo son hasta 2016 y, además para esta parte solo se han tomado aquellos países que poseen más de 20 satélites. Los cuales son, USA, Alemania, Canadá, China, Japón, Rusia, India y Reino Unido, además de otros lanzados de manera multinacional y la Agencia Espacial Europea.
+    st.write('''Tomando aquellos países que poseen más de 20 satélites para ver aquellos con mayor poder en ingeniería aeroespacial,se observa que estos son USA, Alemania, Canadá, China, Japón, Rusia, India y Reino Unido, además de otros lanzados de manera multinacional y la Agencia Espacial Europea.
     Se puede observar fácilmente que el país que más destaca es USA por tener la mayor cantidad y variedad de satélites en órbita. Los dos únicos países que pueden mínimamente compararse con el poderío espacial de Estados Unidos son China y Rusia (especialmente China hoy en día).
     El mayor uso que se demuestra son para comunicaciones, seguido de observación de la Tierra y desarrollo tecnológico.''')
 
