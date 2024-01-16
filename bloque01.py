@@ -1,4 +1,9 @@
 from CommonTools import *
+def PositionImage2(data, proportions = [0.15, 0.7, 0.15], usecol = 1):
+    cols = st.columns(proportions)
+    with cols[usecol]:
+        st.image(data)
+    pass
 # add to nav
 add_page_title(initial_sidebar_state="expanded", layout="wide")
 local_css("frontend.css")
@@ -7,7 +12,7 @@ def B1_Frontend():
     titulo = st.empty()
 
     titulo.markdown(
-        '<h1 style="text-align: center; margin-top: 300px;">¿Quieres saber qué nos dicen los datos de la industria de los satélites?</h1>',
+        '<h1 style="text-align: center;">¿Quieres saber qué nos dicen los datos de la industria de los satélites?</h1>',
         unsafe_allow_html=True)
 
     window = st.radio("", ["***DATOS***", "***CONSECUENCIAS***"], index=None, horizontal=True)
@@ -40,15 +45,28 @@ def B1_Frontend():
         #    </div>""", unsafe_allow_html=True)
         st.title("Acumulación desmesurdad de basura espacial")
         #st.title("El crecimiento exponencial en el lanzamiento de cohete a conducido a una QUINTUPLICACIÓN de la basura espacial en los últimos 10 AÑOS")
-        st.write("""<p style='color:black;font-size:20px;font-weight:bold;'>EL crecimiento exponencial en el lanzamiento de cohetes ha conducido a una <span style='color:darkred;'>QUINTUPLICACIÓN</span> de la basura espacial en los últimos <span style='color:darkred;'>10 AÑOS</span>. ¡¡Observa cómo crece!!</p>""", unsafe_allow_html=True)
+        #st.write("""<p style='color:black;font-size:20px;font-weight:bold;'>EL crecimiento exponencial en el lanzamiento de cohetes ha conducido a una <span style='color:darkred;'>QUINTUPLICACIÓN</span> de la basura espacial en los últimos <span style='color:darkred;'>10 AÑOS</span>. ¡¡Observa cómo crece!!</p>""", unsafe_allow_html=True)
+        mensaje = """<p style='color:black;font-size:20px;'>EL crecimiento exponencial en el lanzamiento de cohetes ha conducido a una <span style='color:darkred;font-weight:bold;'>QUINTUPLICACIÓN</span> de la basura espacial en los últimos <span style='color:darkred;'>10 AÑOS</span>. ¡¡Observa cómo crece!!</p>"""
 
+        st.write(mensaje, unsafe_allow_html=True)
         fig = B1_03()
         PositionImage(fig)
         
         st.title("¿Qué efectos negativos trae la basura espacial?")
-        st.write(""" Todos los satélites que se lanzan pasan a ser basura espacial. El riesgo de la basura espacial reside las velocidades a las que se desplaza en el espacio y el peligro que supone el impacto de ella contra satélites que están desarrollando su función o, en el peor de los casos, a misiones tripuladas. """)
+        #st.write(""" Todos los satélites que se lanzan pasan a ser basura espacial. El riesgo de la basura espacial reside las velocidades a las que se desplaza en el espacio y el peligro que supone el impacto de ella contra satélites que están desarrollando su función o, en el peor de los casos, a misiones tripuladas. Según la ESA la masa total de basura supera las 9300 toneladas """)
+        mensaje = """Todos los satélites que se lanzan pasan a ser basura espacial. 
+        El riesgo de la basura espacial reside en las velocidades a las que se desplaza en el espacio y el peligro que supone el impacto de ella contra satélites que están desarrollando su función o, en el peor de los casos, a misiones tripuladas. 
+        Según la ESA la masa total de basura supera las <span style="font-size: 28px; color: red; font-weight: bold;">    9300 TONELADAS</span> """
+
+        st.markdown(mensaje, unsafe_allow_html=True)
         st.subheader("")
-        st.image('./imgs/basura_espacial_bloque1.jpg')
+        #st.image('./imgs/basura_laser.PNG')
+        PositionImage2('./imgs/basura_laser.PNG')
+        texto = "Vista de desechos espaciales que flotan alrededor del planeta a través de un láser"
+        # Centrar el texto en el centro
+        centrado_html = f'<div style="text-align: center;">{texto}</div>'
+        # Mostrar el texto centrado
+        st.markdown(centrado_html, unsafe_allow_html=True)
 
 
 def B1_01():
