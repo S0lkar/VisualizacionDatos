@@ -2,7 +2,7 @@ import streamlit as st
 from st_pages import Page, show_pages
 
 st.set_page_config(page_title="Active Satellites in Orbit Around Earth (2016)", page_icon="🌎",
-                   initial_sidebar_state="expanded")
+                   initial_sidebar_state="auto")
 
 show_pages(
     [
