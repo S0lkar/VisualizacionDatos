@@ -40,15 +40,17 @@ def B0_Frontend():
     # ---------------------------------------------------------------------------------
 
     st.subheader("| Objetivo del trabajo")
-    objetivo_text = """Durante los últimos años se ha detectado un problema en el ámbito espacial relacionado con los satélites y basura espacial.
-    España juega un papel fundamental en la prevención y solución de esta situación. Sin embargo, es una historia poco conocida hoy en día.
-    Nuestro objetivo principal es exponer información sobre los satélites actuales para demostrar que pueden surgir grandes pérdidas
-    globales si empiezan a suceder colisiones de satélites activos con la basura espacial, además de fomentar el plan europeo de prevención.
-    Para lograrlo, haremos un recorrido histórico de la situación desde los primeros satélites hasta los lanzamientos más recientes (hasta 2016),
-    expondremos información sobre qué países se verían más afectados (fabricantes y propietarios) y en qué órbitas son más comúnes encontrar los
-    satélites activos.
+    objetivo_text = """En los últimos años se ha detectado un grave problema en el ámbito espacial relacionado con los satélites y la basura espacial, que quizás esté pasando
+    desapercibido para la mayoría de la población.
+    Esta es la razón de que nuestro principal objetivo sea exponer información sobre los satélites activos actualmente para evidenciar el grave peligro y las grandes catástrofes que
+    que la colisión de un satélite con basura espacial puede ocasionar.
+    Para lograrlo, haremos un recorrido histórico por los satélites que siguían activos en el 2016, así como a quién pertenecen, quién los fabricó o en qué órbitas se encuentran.
     """
     st.write(objetivo_text)
+    st.subheader("| Conjunto de datos")
+    datos_text = """En este trabajo hemos utilizado este <a 
+       href="https://www.kaggle.com/datasets/ucsusa/active-satellites/data"> conjunto de datos</a>."""
+    st.write(datos_text, unsafe_allow_html=True)
     st.subheader("| Github")
     st.write(
         'Todo nuestro proyecto se encuentra en <a '
