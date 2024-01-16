@@ -25,15 +25,15 @@ def B2_Frontend():
     jamás alcanzados por ambas potencias.'''
     text_b202 = '''Esta competición hizo que el principal propósito de la Convención de 1976 para el registro de lanzamiento de
     objetos al espacio exterior fuera conseguir transparencia en las actividades espaciales y comenzar una regulación
-    internacional del uso y exploración del espacio exterior.Sin embargo el carácter no vinculante de las resoluciones
+    internacional del uso y exploración del espacio exterior. Sin embargo el carácter no vinculante de las resoluciones
     acerca de este aspecto provocan que bien por errores adminsitrativos, por poca atención
-    de los países o por ocultar nuevas tecnologías de ámbito militar haya muchos satélites sin registrar'''
+    de los países o por ocultar nuevas tecnologías de ámbito militar haya muchos satélites sin registrar.'''
 
     text_b203 = '''Desde 1997 podemos observar un claro incremento del número de lanzamientos. Impulsado en su mayor
     parte por los avances tecnológicos y el creciente auge de las comunicaciones en este siglo.'''
 
     text_b204 = '''Como podemos observar en el gráfico también se disputa la hegemonía mundial en el terreno espacial,
-    ya que Estados Unidas, Rusia y China conforman el podio de los países con más satélites en órbita'''
+    ya que Estados Unidos, Rusia y China conforman el podio de los países con más satélites en órbita'''
 
     st.write(text_b201, unsafe_allow_html=True)
     st.write(text_b202, unsafe_allow_html=True)
