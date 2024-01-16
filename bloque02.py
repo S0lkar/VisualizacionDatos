@@ -36,12 +36,20 @@ def B2_Frontend():
 def B2_01(df):
     # fig = px.bar(df['Country/Organization of UN Registry'].value_counts().sort_values(ascending=False), labels={'value': 'País/Organización'},
     #              title='Country/Organization of UN Registry')
+
+    def setOtherCountry(s):
+        s = 'Other countries'
+        return s
+
     df_a = df['Country/Organization of UN Registry'].value_counts()
+    df_b = df['Country/Organization of UN Registry'].value_counts()
 
-    #df_a = df_a.where(df_a >= 29)
-    #df_a.loc[df_a < 29] = 'Other countries'
+    df_a = df_a.where(df_a >= 29)
+    df_b = df_b.where(df_b < 29).rename(setOtherCountry, axis=0)
+ 
+    df_c = pd.concat([df_a,df_b])
 
-    fig = px.pie(df, values=df_a.values, names=df_a.index,
+    fig = px.pie(df_c, values=df_c.values, names=df_c.index,
                  title='Número de satélites activos registrados ante la ONU por país')
     #fig.update_layout(yaxis={'categoryorder': 'total descending'})
     # fig.for_each_trace(lambda t: t.update(name=newlegend[t.name],
