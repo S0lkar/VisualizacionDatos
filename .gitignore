@@ -1,0 +1,6 @@
+/venv
+/__pycache__
+/orbital/__pycache__
+/represent/__pycache__
+/.vscode
+/.idea
