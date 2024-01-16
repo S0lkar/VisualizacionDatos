@@ -5,13 +5,7 @@ Created on Tue Jan  9 18:05:42 2024
 @author: Daniel007
 """
 
-import pandas as pd
-import plotly.express as px
-import streamlit as st
 from CommonTools import *
-
-import warnings
-warnings.filterwarnings("ignore")
 
 # add to nav
 add_page_title(initial_sidebar_state="expanded", layout="wide")
@@ -72,3 +66,5 @@ def B3_01():
     B3_0X.update_traces(selector=dict(type='bar'), hoverinfo='y+name')
     
     return B3_0X
+
+B1_Frontend()
