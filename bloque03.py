@@ -30,7 +30,7 @@ def B1_Frontend():
     st.write('''El motivo de que destaque el uso de satélites en comunicaciones se explica por la utilización de teléfono móviles, internet, canales de televisión, radio y uso militar. 🚀🚀''')
 
     st.write("\n")
-    st.write('''El motivo de el gran uso también de satélites de observación de la Tierra son sobretodo por motivos de información meteorológica y geográfica. 🚀🚀''')
+    st.write('''El motivo del gran uso también de satélites de observación de la Tierra son sobretodo por motivos de información meteorológica y geográfica. 🚀🚀''')
 
     fig=B3_01()
     PositionImage(fig)
