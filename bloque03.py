@@ -13,6 +13,10 @@ from CommonTools import *
 import warnings
 warnings.filterwarnings("ignore")
 
+# add to nav
+add_page_title(initial_sidebar_state="expanded", layout="wide")
+local_css("frontend.css")
+
 database = pd.read_csv('database.csv')
  
 
