@@ -3,16 +3,13 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import plotly.express as px
 from st_pages import add_page_title
+from CommonTools import *
 
 # add to nav
-add_page_title()
+add_page_title(initial_sidebar_state="expanded", layout="wide")
+local_css("frontend.css")
 
 FILENAME = 'database.csv'
-'''Official Name of Satellite,Country/Organization of UN Registry,Operator/Owner,Country of Operator/Owner,Users,Purpose,
-Detailed Purpose,Class of Orbit,Type of Orbit,Longitude of Geosynchronous Orbit (Degrees),Perigee (Kilometers),
-Apogee (Kilometers),Eccentricity,Inclination (Degrees),Period (Minutes),Launch Mass (Kilograms),Dry Mass (Kilograms),
-Power (Watts),Date of Launch,Expected Lifetime (Years),Contractor,Country of Contractor,Launch Site,Launch Vehicle,COSPAR Number,NORAD Number'''
-
 
 def B2_Frontend():
     # Cargamos el csv
@@ -29,30 +26,33 @@ def B2_Frontend():
     text_b202 = '''Desde 1997 podemos observar un claro incremento del número de lanzamientos. Impulsado en su mayor
     parte por los avances tecnológicos y el creciente auge de las comunicaciones en este siglo.'''
 
-    st.write(f'<p style="color:#f4ebd0">{text_b201}</p>', unsafe_allow_html=True)
-    st.plotly_chart(figure_or_data=B2_01(df), use_container_width=True)
-    st.write(f'<p style="color:#f4ebd0">{text_b202}</p>', unsafe_allow_html=True)
-    st.plotly_chart(figure_or_data=B2_02(df), use_container_width=True)
+    st.write(text_b201, unsafe_allow_html=True)
+    PositionImage(B2_01(df))
+    st.write(text_b202, unsafe_allow_html=True)
+    PositionImage(B2_02(df))
     return True
 
 
 def B2_01(df):
-    df['Date of Launch'] = pd.to_datetime(df['Date of Launch'])
-    df['Year of Launch'] = df['Date of Launch'].apply(lambda x: x.year)
-    count_year_df = df.groupby('Year of Launch')['Country of Operator/Owner'].count()
-    newlegend = {'Country of Operator/Owner': 'Launches'}
-    fig = px.bar(count_year_df, labels={'value': 'Number of launches'},
-                 title='Launches of the current active satellites till 2016')
-    fig.for_each_trace(lambda t: t.update(name=newlegend[t.name],
-                                          legendgroup=newlegend[t.name],
-                                          hovertemplate=t.hovertemplate.replace(t.name, newlegend[t.name])
-                                          ))
+    # fig = px.bar(df['Country/Organization of UN Registry'].value_counts().sort_values(ascending=False), labels={'value': 'País/Organización'},
+    #              title='Country/Organization of UN Registry')
+    df_a = df['Country/Organization of UN Registry'].value_counts()
+
+    #df_a = df_a.where(df_a >= 29)
+    #df_a.loc[df_a < 29] = 'Other countries'
+
+    fig = px.pie(df, values=df_a.values, names=df_a.index,
+                 title='Número de satélites activos registrados ante la ONU por país')
+    #fig.update_layout(yaxis={'categoryorder': 'total descending'})
+    # fig.for_each_trace(lambda t: t.update(name=newlegend[t.name],
+    #                                       legendgroup=newlegend[t.name],
+    #                                       hovertemplate=t.hovertemplate.replace(t.name, newlegend[t.name])
+    #                                       ))
     return fig
 
 
 def B2_02(df):
-    df_countries = df[df['Year of Launch'] > 1997]
-    fig = px.pie(df_countries, names='Purpose', title='Active Satellites purposes till 2016')
+    fig = px.pie(df, names=df['Country of Operator/Owner'], title='Número de satélites activos por país')
 
     return fig
 
