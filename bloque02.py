@@ -26,7 +26,7 @@ def B2_Frontend():
     text_b202 = '''Esta competición hizo que el principal propósito de la Convención de 1976 para el registro de lanzamiento de
     objetos al espacio exterior fuera conseguir transparencia en las actividades espaciales y comenzar una regulación
     internacional del uso y exploración del espacio exterior. Sin embargo el carácter no vinculante de las resoluciones
-    acerca de este aspecto provocan que bien por errores adminsitrativos, por poca atención
+    acerca de este aspecto provocan que bien por errores administrativos, por poca atención
     de los países o por ocultar nuevas tecnologías de ámbito militar haya muchos satélites sin registrar.'''
 
     text_b203 = '''Desde 1997 podemos observar un claro incremento del número de lanzamientos. Impulsado en su mayor
