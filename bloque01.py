@@ -18,7 +18,7 @@ def B1_Frontend():
     window = st.radio("", ["***DATOS***", "***CONSECUENCIAS***"], index=None, horizontal=True)
 
     if window == '***DATOS***':
-        st.title("Crecimiento en el lanzamiento de cohetes")
+        st.title("Crecimiento en el lanzamiento de satélites")
         st.write(""" Desde los años 50 hemos incrementado exponencialmente el número de satélites lanzados🚀🚀""") 
             
         st.write("""Con el paso de los años cada vez es mayor nuestra evolución tecnológica en comunicación, meteorología, recogidas de datos, necesidad de investigación del espacio exterior...""")
@@ -46,7 +46,7 @@ def B1_Frontend():
         st.title("Acumulación desmesurada de basura espacial")
         #st.title("El crecimiento exponencial en el lanzamiento de cohete a conducido a una QUINTUPLICACIÓN de la basura espacial en los últimos 10 AÑOS")
         #st.write("""<p style='color:black;font-size:20px;font-weight:bold;'>EL crecimiento exponencial en el lanzamiento de cohetes ha conducido a una <span style='color:darkred;'>QUINTUPLICACIÓN</span> de la basura espacial en los últimos <span style='color:darkred;'>10 AÑOS</span>. ¡¡Observa cómo crece!!</p>""", unsafe_allow_html=True)
-        mensaje = """<p style='color:black;font-size:20px;'>EL crecimiento exponencial en el lanzamiento de cohetes ha conducido a una <span style='color:darkred;font-weight:bold;'>QUINTUPLICACIÓN</span> de la basura espacial en los últimos <span style='color:darkred;'>10 AÑOS</span>. ¡¡Observa cómo crece!!</p>"""
+        mensaje = """<p style='color:black;font-size:20px;'>EL crecimiento exponencial en el lanzamiento de satélites ha conducido a una <span style='color:darkred;font-weight:bold;'>QUINTUPLICACIÓN</span> de la basura espacial en los últimos <span style='color:darkred;'>10 AÑOS</span>. ¡¡Observa cómo crece!!</p>"""
 
         st.write(mensaje, unsafe_allow_html=True)
         fig = B1_03()
