@@ -43,7 +43,7 @@ def B1_Frontend():
         #    <div style="text-align:center; color:orange; font-size:38px; padding:10px;">
         #    La basura espacial se ha multiplicado por 5 en los últimos 10 años
         #    </div>""", unsafe_allow_html=True)
-        st.title("Acumulación desmesurdad de basura espacial")
+        st.title("Acumulación desmesurada de basura espacial")
         #st.title("El crecimiento exponencial en el lanzamiento de cohete a conducido a una QUINTUPLICACIÓN de la basura espacial en los últimos 10 AÑOS")
         #st.write("""<p style='color:black;font-size:20px;font-weight:bold;'>EL crecimiento exponencial en el lanzamiento de cohetes ha conducido a una <span style='color:darkred;'>QUINTUPLICACIÓN</span> de la basura espacial en los últimos <span style='color:darkred;'>10 AÑOS</span>. ¡¡Observa cómo crece!!</p>""", unsafe_allow_html=True)
         mensaje = """<p style='color:black;font-size:20px;'>EL crecimiento exponencial en el lanzamiento de cohetes ha conducido a una <span style='color:darkred;font-weight:bold;'>QUINTUPLICACIÓN</span> de la basura espacial en los últimos <span style='color:darkred;'>10 AÑOS</span>. ¡¡Observa cómo crece!!</p>"""
